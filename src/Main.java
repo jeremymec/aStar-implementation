@@ -10,10 +10,6 @@ public class Main {
 
     public Main(){
         create();
-        print();
-        Dijkstars d = new Dijkstars(g);
-        Value shortest = d.find(g.nodes.get(0), g.nodes.get(1));
-        System.out.println("Shortest path is " + shortest + g.nodes.get(1).getValue() + " with value of " + shortest.value);
     }
 
 
@@ -42,26 +38,6 @@ public class Main {
     }
 
     public void print(){
-        ArrayList<Node> nodes = g.nodes;
-        ArrayList<Edge> edges = g.edges;
-
-        System.out.println("Graph with " + nodes.size() + " nodes, and " + edges.size() + " edges.");
-        String allNodes = "";
-
-        for (Node n : nodes){
-            allNodes += " ";
-            allNodes += n.getValue();
-            allNodes += " ";
-        }
-
-        System.out.println("Nodes: " + allNodes);
-
-        System.out.println("Connected nodes are ");
-
-        for (Edge e : edges){
-            System.out.println(e.getNodes()[0].getValue() + " <------ > " + e.getNodes()[1].getValue());
-        }
-
 
     }
 
