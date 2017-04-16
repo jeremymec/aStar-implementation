@@ -1,20 +1,34 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AStar {
-
+    Graph g;
     HashMap<Node, Value> nodes;
-    HashMap<Node, Value> visited;
+    ArrayList<Node> visited;
+
+    public AStar(Graph g){
+        this.nodes = new HashMap<>();
+        this.visited = new ArrayList<>();
+
+        this.g = g;
+
+        for (Node n : g.nodes){
+            nodes.put(n, new Value(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        }
+    }
 
 
 }
 
 class Value{
     // Total cost of Node
-    int cost;
+    private int cost;
 
     //heuristic
     int h;
 
+    //edge cost
     int g;
 
     public Value(int h, int g){
@@ -24,7 +38,7 @@ class Value{
         this.cost = g + h;
     }
 
-    public int cost(){
+    public int getCost(){
         return this.cost;
     }
 
